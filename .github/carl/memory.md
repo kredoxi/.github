@@ -13,6 +13,16 @@ merely because an agent is running. An authorised compromised application can
 expose received credentials. Privileged-host protection, memory confidentiality,
 transparent interception, and production readiness must not be assumed.
 
+## Visual identity
+
+`logos/` in this repository is the canonical, organisation-wide source for
+Kredoxi visual identity. The approved assets are the primary wordmark
+`logos/kredoxi_logo_optimized.png`, compact logo
+`logos/kredoxi_github_avatar.png`, and original master
+`logos/kredoxi-logo.png`; preserve their artwork and do not establish unofficial
+variants. Use the exact product name **Kredoxi** and tagline **Steal the config.
+Not the secret.**
+
 ## Governance authority
 
 Canonical `.github/carl/` artifacts and effective instruction packs govern coding
