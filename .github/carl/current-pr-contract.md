@@ -1,75 +1,58 @@
-# Current PR contract: Kredoxi governance bootstrap
+# Current PR contract: actions/checkout v7
 
 ## Goal and contract status
 
-Closed after bootstrap delivery; the feature PR remains open and unmerged.
-Assisted implementation was approved by the user's execution brief and retry.
-Establish the `.github` organisation profile, community standards, effective cARL
-governance, least-privilege CI, and verifiable GitHub repository controls.
+Active for PR #2. Upgrade the governance workflow's `actions/checkout` reference
+from v4.4.0 to v7.0.1 using immutable commit
+`3d3c42e5aac5ba805825da76410c181273ba90b1`. This contract becomes historical
+when PR #2 is merged.
 
-## Approved scope and plan
+## Approved scope
 
-1. Install cARL v1.0.2 using the discovered CLI, retain canonical bundled assets,
-   select relevant packs, sync Copilot, and replace upstream project memory with
-   Kredoxi repository truth.
-2. Add public community documents, issue forms, PR template, CI validation,
-   GitHub Actions dependency updates, and shared security guidance.
-3. Enable and read back supported security controls in `kredoxi/.github`, plus
-   the requested organisation profile/member/new-repository security defaults.
-   Document organisation Actions controls blocked by insufficient token scope.
-4. Validate locally, commit, push, open a PR, confirm its CI, then require the
-   demonstrated check on the protected default branch. Never merge.
+- Update only the `actions/checkout` reference and version comment in
+  `.github/workflows/governance.yml`.
+- Reconcile this active contract with PR #2 and record the scoped owner
+  authorization below.
 
 ## Non-goals and forbidden scope
 
-No work in other repositories, runtime MVP, interception implementation, production
-credentials, licence selection, releases, automatic merging, force pushes, broad
-permission grants, disruptive 2FA enforcement, or weakening existing protections.
+- Do not change any other action, workflow behavior, dependency, runner,
+  permission, secret, repository setting, or unrelated governance policy.
+- Do not force-push, enable auto-merge, bypass branch protection, delete a
+  branch, or merge any PR other than #2 under this contract.
 
-## Architectural and security constraints
+## Constraints
 
-Canonical cARL assets remain authoritative; loaders remain generated adapters.
-No embedded source changes are needed in this consumer repository. Repository
-memory is project-owned and must not describe the upstream cARL implementation
-as Kredoxi. Custom project guidance is additive, not an override.
-
-CI uses read-only tokens and reviewed pinned actions/tooling. Governance health
-and pack diagnostics do not prove model adherence. Vulnerability reporting must
-have a verified private route; avoid publishing exploit details.
-
-## Expected files
-
-`profile/`, root community documents, `.github/ISSUE_TEMPLATE/`,
-`.github/PULL_REQUEST_TEMPLATE.md`, `.github/workflows/`, `.github/dependabot.yml`,
-`scripts/`, `.gitignore`, `.gitattributes`, `requirements-ci.txt`, `docs/`, generated cARL assets and adapters,
-project pack, selection state, current contract, memory, and generated repo map.
+- Keep `permissions: contents: read` and `persist-credentials: false`.
+- Preserve `runs-on: ubuntu-24.04`, the 10-minute job timeout, the existing
+  setup-python pin, and Python 3.12.
+- The checkout action must be exactly
+  `actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1`.
+- Do not weaken existing security, validation, or branch-protection controls.
 
 ## Contract assertions and validation
 
-1. Public files exist, local documentation links resolve, issue forms have
-   required fields, and no licence is added: `python scripts/validate_governance.py`.
-2. Workflow triggers cover every PR and default-branch push, tokens are read-only,
-   checkout does not retain credentials, action pins are full SHAs, and downloads
-   have committed integrity checks: same validator and GitHub CI.
-3. cARL reports healthy assets and exactly the intended effective packs:
-   `carl status`, `carl pack effective --json`, `carl trace`, `carl harness status`.
-4. GitHub security controls are read back; required checks have a real successful
-   run, and branch protection prevents force pushes/deletion without a sole-owner
-   approval deadlock: REST API inspection.
-5. PR stays open and unmerged: live PR state inspection.
+1. The complete diff changes only the intended checkout reference/comment and
+   this PR-specific contract.
+2. The action SHA is immutable and corresponds to v7.0.1; workflow permissions,
+   runner, Python runtime, and credential persistence remain as specified.
+3. The required `Governance validation` check succeeds on the final PR head,
+   and the PR is mergeable under the live `main` protections.
+4. After merge, the default-branch workflow succeeds for the resulting main
+   merge SHA before PR #3 is considered.
 
 ## Risks, stop conditions, and escalation
 
-Stop writes on permission denial, unexpected existing work, new dependency trust
-concerns, conflicting governance, or any requirement for destructive operations.
-Record unsupported API controls rather than claiming enablement. Python/PyYAML
-is a narrowly scoped CI-only dependency for parsing real YAML, not product runtime.
-The cARL release checksum establishes pinned integrity, not a signing trust root.
+Stop if the action SHA/version, workflow baseline, branch protection, required
+check, or mergeability cannot be verified; if any check fails or times out; or
+if an unexpected file or security-sensitive behavior changes. Leave the PR open
+and stop this sequence. Never bypass or weaken a gate.
 
-## Reconciliation and context reset
+## Owner authorization amendment (2026-10-31)
 
-Project memory and governance documentation were updated for durable truth.
-The demonstrated CI check is required on protected `main`, with no force pushes,
-deletion, or sole-owner approval deadlock. Profile/community files remain proposed
-until owner merge. This completed contract is historical scope, not an invariant
-for unrelated future work; create a fresh active contract before future changes.
+The repository owner explicitly authorizes merging this specific PR #2, after
+PR #5 has merged and its required default-branch workflow has succeeded. This
+supersedes prior task-scoped instructions not to merge only for PR #2. It does
+not authorize PR #3 or any other PR; the rest of the approved sequence remains
+separately gated. Do not use auto-merge, force-push, or branch-protection
+bypasses. If any gate is missing, fails, or times out, leave PR #2 open and stop.
