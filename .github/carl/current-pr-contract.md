@@ -12,7 +12,7 @@ when PR #3 is merged.
 - Update only the `actions/setup-python` reference and version comment in
   `.github/workflows/governance.yml`.
 - Reconcile this active contract with PR #3 and record the scoped owner
-authorization below.
+  authorization below.
 
 ## Non-goals and forbidden scope
 
