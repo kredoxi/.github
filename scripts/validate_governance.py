@@ -34,6 +34,7 @@ PUBLIC_DOCS = (
     "docs/GOVERNANCE.md",
     "docs/CI_SECURITY.md",
     ".github/PULL_REQUEST_TEMPLATE.md",
+    "docs/BRANDING.md",
 )
 
 

@@ -17,6 +17,8 @@ artwork.
 - Link the branding guidance from the root `README.md`.
 - Record the canonical logo location and approved asset roles in
   `.github/carl/memory.md`.
+- Include the branding guide in the existing public-document link validation
+  so the regression-test fixture contains every linked public document.
 - Open a separate pull request for these changes. Do not merge it.
 
 ## Non-goals and forbidden scope
@@ -50,7 +52,8 @@ artwork.
    primary wordmark links to the canonical logo directory and has alt text
    `Kredoxi — Steal the config. Not the secret.`
 3. Root documentation links to the branding guide, and all repository-local
-   links added by this change resolve.
+   links added by this change resolve; `docs/BRANDING.md` is covered by the
+   validator's fixture and link checks.
 4. The logo files retain their original SHA-256 hashes and dimensions.
 5. `python scripts/validate_governance.py` passes; inspect the final diff and
    open (but do not merge) a separate PR using the repository PR template.

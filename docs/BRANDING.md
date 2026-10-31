@@ -1,17 +1,17 @@
 # Kredoxi visual identity
 
 `kredoxi/.github` is the canonical, organisation-wide source of truth for
-Kredoxi visual identity. The assets in [`logos/`](../logos/) are the only
-approved logo assets; use these files rather than creating or sourcing
-unofficial alternatives.
+Kredoxi visual identity. The files in `logos/` are the only approved logo
+assets; use these files rather than creating or sourcing unofficial
+alternatives.
 
 ## Approved assets
 
 | Role | Canonical file | Dimensions | Use |
 | --- | --- | --- | --- |
-| Primary wordmark | [`logos/kredoxi_logo_optimized.png`](../logos/kredoxi_logo_optimized.png) | 1200 x 900 | Default logo for documentation and organisation presentation. |
-| Compact logo | [`logos/kredoxi_github_avatar.png`](../logos/kredoxi_github_avatar.png) | 512 x 512 | Compact square contexts such as the GitHub organisation avatar. |
-| Original master | [`logos/kredoxi-logo.png`](../logos/kredoxi-logo.png) | 1448 x 1086 | Retained as the original source asset. |
+| Primary wordmark | `logos/kredoxi_logo_optimized.png` | 1200 x 900 | Default logo for documentation and organisation presentation. |
+| Compact logo | `logos/kredoxi_github_avatar.png` | 512 x 512 | Compact square contexts such as the GitHub organisation avatar. |
+| Original master | `logos/kredoxi-logo.png` | 1448 x 1086 | Retained as the original source asset. |
 
 Use the primary wordmark by default. When displaying it, use a descriptive alt
 text and constrain its width without setting a different aspect ratio. Do not
