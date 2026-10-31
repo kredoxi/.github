@@ -1,0 +1,38 @@
+name: Bug report
+description: Report a reproducible non-security defect using synthetic data.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: Do not post vulnerabilities or secrets here. Follow SECURITY.md.
+  - type: input
+    id: revision
+    attributes:
+      label: Version or commit
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Platform and runtime versions
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Synthetic reproduction
+      description: Minimal steps and redacted configuration; no real credentials.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Observed behaviour
+    validations:
+      required: true

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "selected": [
+    "core/baseline",
+    "core/carl",
+    "core/cognition-governance",
+    "core/dependency",
+    "core/identity",
+    "core/memory-cache",
+    "core/pr-contract",
+    "core/security",
+    "core/tool-permission-tiers",
+    "languages/python",
+    "platform/cicd",
+    "project/kredoxi"
+  ]
+}
