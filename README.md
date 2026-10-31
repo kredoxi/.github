@@ -8,6 +8,7 @@ uses `profile/README.md` from the default branch; an unmerged PR is not yet live
 - [Code of conduct](CODE_OF_CONDUCT.md)
 - [Security and coordinated disclosure](SECURITY.md)
 - [Support](SUPPORT.md)
+- [Kredoxi visual identity and logo usage](docs/BRANDING.md)
 - [Governance controls and verification](docs/GOVERNANCE.md)
 - [Least-privilege CI and supply-chain guidance](docs/CI_SECURITY.md)
 
