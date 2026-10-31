@@ -71,3 +71,16 @@ The branding guide, organisation profile, root README, and memory entry are the
 durable record of this decision. Keep this contract active while the PR is under
 review. After the PR is merged or closed, reset it so this task's scope does not
 constrain unrelated future work.
+
+## Owner authorization amendment (2026-10-31)
+
+The repository owner explicitly authorizes merging this specific PR #5,
+superseding the preceding “Do not merge the resulting PR” instruction only
+for PR #5. This authorization requires complete diff inspection, unchanged
+canonical logo SHA-256 hashes, no added duplicate logo binaries, the exact
+approved product name and tagline, evidence-bounded claims, required checks
+tied to the amended PR head, intact branch protection, and a successful
+default-branch workflow after merge. Do not bypass protections, enable
+auto-merge, force-push, modify security settings, or merge any other PR under
+this amendment. If any required gate is missing, fails, or times out, leave
+PR #5 open and stop this sequence.
