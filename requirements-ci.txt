@@ -1,0 +1,2 @@
+# CI-only YAML parsing for workflows, issue forms, and governance configuration.
+PyYAML==6.0.3
