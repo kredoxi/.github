@@ -48,11 +48,17 @@ Diagnostics demonstrate local artifact health and pack composition, not model
 compliance or a product security guarantee.
 
 Run `carl map` and `carl reconcile` after structural changes. On Windows, explicitly
-use the intended installed CLI if PATH resolves another version.
+use the intended installed CLI if PATH resolves another version. `.gitattributes`
+preserves LF bytes across platforms so bundled artifact comparisons remain stable.
 
 GitHub settings must be read back before reporting enablement. Organisation
 Actions administration requires permissions beyond repository administration;
 record unavailable scopes and manual actions in `docs/GOVERNANCE.md`.
+
+The default branch requires the demonstrated `Governance validation` check from
+GitHub Actions, current branch state, resolved conversations, and a PR. Protection
+applies to admins, blocks force pushes/deletion, and requires zero approvals while
+the organisation has one maintainer. Live evidence is in `docs/GOVERNANCE.md`.
 
 <!-- BEGIN GENERATED: reconcile -->
 ## Repository snapshot

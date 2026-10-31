@@ -2,7 +2,8 @@
 
 ## Goal and contract status
 
-Active; assisted implementation approved by the user's execution brief and retry.
+Closed after bootstrap delivery; the feature PR remains open and unmerged.
+Assisted implementation was approved by the user's execution brief and retry.
 Establish the `.github` organisation profile, community standards, effective cARL
 governance, least-privilege CI, and verifiable GitHub repository controls.
 
@@ -13,8 +14,9 @@ governance, least-privilege CI, and verifiable GitHub repository controls.
    Kredoxi repository truth.
 2. Add public community documents, issue forms, PR template, CI validation,
    GitHub Actions dependency updates, and shared security guidance.
-3. Enable and read back supported security controls in `kredoxi/.github`.
-   Document organisation controls blocked by insufficient token scope.
+3. Enable and read back supported security controls in `kredoxi/.github`, plus
+   the requested organisation profile/member/new-repository security defaults.
+   Document organisation Actions controls blocked by insufficient token scope.
 4. Validate locally, commit, push, open a PR, confirm its CI, then require the
    demonstrated check on the protected default branch. Never merge.
 
@@ -66,6 +68,8 @@ The cARL release checksum establishes pinned integrity, not a signing trust root
 
 ## Reconciliation and context reset
 
-Update project memory and governance documentation for durable truth. Close this
-contract after delivery; a completed contract is historical scope, not an invariant
-for unrelated future work.
+Project memory and governance documentation were updated for durable truth.
+The demonstrated CI check is required on protected `main`, with no force pushes,
+deletion, or sole-owner approval deadlock. Profile/community files remain proposed
+until owner merge. This completed contract is historical scope, not an invariant
+for unrelated future work; create a fresh active contract before future changes.

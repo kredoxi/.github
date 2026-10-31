@@ -19,7 +19,14 @@ Do not infer enablement from repository visibility or API write success.
 | Private vulnerability reporting | Enabled; private-vulnerability-reporting read-back |
 | Actions permissions | Read-only token; workflow PR approvals disabled |
 | Allowed actions | Only `actions/checkout@*` and `actions/setup-python@*`; GitHub-owned blanket allowance and verified-publisher allowance disabled; full SHA pinning required |
-| Default-branch protection/checks | Pending demonstrated CI and protection |
+| Default-branch protection/checks | `main` requires PRs, resolved conversations, and up-to-date passing `Governance validation` from GitHub Actions (app ID 15368); admins enforced; force pushes/deletion disabled; zero mandatory approvals |
+
+Repository settings in this table were successfully read back on 2026-10-31.
+The required check first passed in
+[GitHub Actions run 41215398198](https://github.com/kredoxi/.github/actions/runs/41215398198),
+including ten regression tests, the pinned archive checksum, exact effective-pack
+membership, runtime health, and synced Copilot adapter. Protection was applied
+only after that successful run and its check producer were verified.
 
 ## Organisation configuration and remaining owner actions
 

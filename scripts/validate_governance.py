@@ -42,8 +42,10 @@ def require(condition: bool, message: str) -> None:
         raise ValueError(message)
 
 
-def load_yaml(relative: str):
-    return yaml.safe_load((ROOT / relative).read_text(encoding="utf-8"))
+def load_yaml(relative: str) -> dict:
+    data = yaml.safe_load((ROOT / relative).read_text(encoding="utf-8"))
+    require(isinstance(data, dict), f"Expected YAML mapping: {relative}")
+    return data
 
 
 def validate_files() -> None:

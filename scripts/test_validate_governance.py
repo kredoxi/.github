@@ -1,6 +1,7 @@
 """Regression tests for the governance check's exact security assertions."""
 
 from pathlib import Path
+from collections.abc import Callable
 import shutil
 import tempfile
 import unittest
@@ -31,7 +32,7 @@ class GovernanceValidationTests(unittest.TestCase):
         self.addCleanup(patch.stopall)
         patch.object(governance, "ROOT", self.root).start()
 
-    def mutate_workflow(self, mutate) -> None:
+    def mutate_workflow(self, mutate: Callable[[dict], None]) -> None:
         workflow = governance.load_yaml(".github/workflows/governance.yml")
         mutate(workflow)
         path = self.root / ".github/workflows/governance.yml"
