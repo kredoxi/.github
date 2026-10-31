@@ -1,75 +1,86 @@
-# Current PR contract: Kredoxi governance bootstrap
+# Current PR contract: Kredoxi visual identity
 
 ## Goal and contract status
 
-Closed after bootstrap delivery; the feature PR remains open and unmerged.
-Assisted implementation was approved by the user's execution brief and retry.
-Establish the `.github` organisation profile, community standards, effective cARL
-governance, least-privilege CI, and verifiable GitHub repository controls.
+Active. Establish `logos/` in `kredoxi/.github` as the canonical,
+organisation-wide source of truth for Kredoxi visual identity and document the
+approved asset roles and naming conventions without changing the existing
+artwork.
 
-## Approved scope and plan
+## Approved scope
 
-1. Install cARL v1.0.2 using the discovered CLI, retain canonical bundled assets,
-   select relevant packs, sync Copilot, and replace upstream project memory with
-   Kredoxi repository truth.
-2. Add public community documents, issue forms, PR template, CI validation,
-   GitHub Actions dependency updates, and shared security guidance.
-3. Enable and read back supported security controls in `kredoxi/.github`, plus
-   the requested organisation profile/member/new-repository security defaults.
-   Document organisation Actions controls blocked by insufficient token scope.
-4. Validate locally, commit, push, open a PR, confirm its CI, then require the
-   demonstrated check on the protected default branch. Never merge.
+- Add `docs/BRANDING.md` documenting the approved product name, tagline, logo
+  paths and uses, source-asset status, canonical raw URLs, and restrictions on
+  creating or modifying variants.
+- Update `profile/README.md` to use the primary wordmark and exact approved
+  product name and tagline.
+- Link the branding guidance from the root `README.md`.
+- Record the canonical logo location and approved asset roles in
+  `.github/carl/memory.md`.
+- Include the branding guide in the existing public-document link validation
+  so the regression-test fixture contains every linked public document.
+- Open a separate pull request for these changes. Do not merge it.
 
 ## Non-goals and forbidden scope
 
-No work in other repositories, runtime MVP, interception implementation, production
-credentials, licence selection, releases, automatic merging, force pushes, broad
-permission grants, disruptive 2FA enforcement, or weakening existing protections.
+- Do not modify, regenerate, replace, rename, or remove any logo binaries.
+- Do not invent, establish, or publish additional branding variants.
+- Do not change organisation or repository settings, or edit other repositories.
+- Do not add a licence, dependency, release, publishing workflow, or automatic
+  merge.
+- Do not alter unrelated governance, security, CI, or product architecture.
 
-## Architectural and security constraints
+## Constraints
 
-Canonical cARL assets remain authoritative; loaders remain generated adapters.
-No embedded source changes are needed in this consumer repository. Repository
-memory is project-owned and must not describe the upstream cARL implementation
-as Kredoxi. Custom project guidance is additive, not an override.
-
-CI uses read-only tokens and reviewed pinned actions/tooling. Governance health
-and pack diagnostics do not prove model adherence. Vulnerability reporting must
-have a verified private route; avoid publishing exploit details.
-
-## Expected files
-
-`profile/`, root community documents, `.github/ISSUE_TEMPLATE/`,
-`.github/PULL_REQUEST_TEMPLATE.md`, `.github/workflows/`, `.github/dependabot.yml`,
-`scripts/`, `.gitignore`, `.gitattributes`, `requirements-ci.txt`, `docs/`, generated cARL assets and adapters,
-project pack, selection state, current contract, memory, and generated repo map.
+- Preserve the three existing assets and their verified bytes:
+  - `logos/kredoxi_logo_optimized.png` — primary wordmark, 1200x900.
+  - `logos/kredoxi_github_avatar.png` — compact logo, 512x512.
+  - `logos/kredoxi-logo.png` — original master source, 1448x1086.
+- Use the exact product name **Kredoxi** and tagline **Steal the config. Not
+  the secret.**
+- In the profile, link the displayed wordmark to the canonical `logos/`
+  directory, use alt text `Kredoxi — Steal the config. Not the secret.`, and
+  set its width to 240px only so its aspect ratio is preserved.
+- Describe only the security properties established by repository evidence;
+  branding must not imply unverified product guarantees.
 
 ## Contract assertions and validation
 
-1. Public files exist, local documentation links resolve, issue forms have
-   required fields, and no licence is added: `python scripts/validate_governance.py`.
-2. Workflow triggers cover every PR and default-branch push, tokens are read-only,
-   checkout does not retain credentials, action pins are full SHAs, and downloads
-   have committed integrity checks: same validator and GitHub CI.
-3. cARL reports healthy assets and exactly the intended effective packs:
-   `carl status`, `carl pack effective --json`, `carl trace`, `carl harness status`.
-4. GitHub security controls are read back; required checks have a real successful
-   run, and branch protection prevents force pushes/deletion without a sole-owner
-   approval deadlock: REST API inspection.
-5. PR stays open and unmerged: live PR state inspection.
+1. The branding guide identifies the exact three canonical paths and their
+   distinct roles, and prohibits unofficial variants.
+2. The profile uses the exact approved product name and tagline; its 240px
+   primary wordmark links to the canonical logo directory and has alt text
+   `Kredoxi — Steal the config. Not the secret.`
+3. Root documentation links to the branding guide, and all repository-local
+   links added by this change resolve; `docs/BRANDING.md` is covered by the
+   validator's fixture and link checks.
+4. The logo files retain their original SHA-256 hashes and dimensions.
+5. `python scripts/validate_governance.py` passes; inspect the final diff and
+   open (but do not merge) a separate PR using the repository PR template.
 
-## Risks, stop conditions, and escalation
+## Stop conditions and escalation
 
-Stop writes on permission denial, unexpected existing work, new dependency trust
-concerns, conflicting governance, or any requirement for destructive operations.
-Record unsupported API controls rather than claiming enablement. Python/PyYAML
-is a narrowly scoped CI-only dependency for parsing real YAML, not product runtime.
-The cARL release checksum establishes pinned integrity, not a signing trust root.
+Stop if any canonical logo is missing or differs from its verified bytes, if
+the requested naming or asset roles conflict with checked-in evidence, or if
+completing the task would require changing another repository, image asset,
+security guarantee, or organisation setting. Do not merge the resulting PR.
 
 ## Reconciliation and context reset
 
-Project memory and governance documentation were updated for durable truth.
-The demonstrated CI check is required on protected `main`, with no force pushes,
-deletion, or sole-owner approval deadlock. Profile/community files remain proposed
-until owner merge. This completed contract is historical scope, not an invariant
-for unrelated future work; create a fresh active contract before future changes.
+The branding guide, organisation profile, root README, and memory entry are the
+durable record of this decision. Keep this contract active while the PR is under
+review. After the PR is merged or closed, reset it so this task's scope does not
+constrain unrelated future work.
+
+## Owner authorization amendment (2026-10-31)
+
+The repository owner explicitly authorizes merging this specific PR #5,
+superseding the preceding “Do not merge the resulting PR” instruction only
+for PR #5. This authorization requires complete diff inspection, unchanged
+canonical logo SHA-256 hashes, no added duplicate logo binaries, the exact
+approved product name and tagline, evidence-bounded claims, required checks
+tied to the amended PR head, intact branch protection, and a successful
+default-branch workflow after merge. Do not bypass protections, enable
+auto-merge, force-push, modify security settings, or merge any other PR under
+this amendment. If any required gate is missing, fails, or times out, leave
+PR #5 open and stop this sequence.
