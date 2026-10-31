@@ -1,86 +1,58 @@
-# Current PR contract: Kredoxi visual identity
+# Current PR contract: actions/checkout v7
 
 ## Goal and contract status
 
-Active. Establish `logos/` in `kredoxi/.github` as the canonical,
-organisation-wide source of truth for Kredoxi visual identity and document the
-approved asset roles and naming conventions without changing the existing
-artwork.
+Active for PR #2. Upgrade the governance workflow's `actions/checkout` reference
+from v4.4.0 to v7.0.1 using immutable commit
+`3d3c42e5aac5ba805825da76410c181273ba90b1`. This contract becomes historical
+when PR #2 is merged.
 
 ## Approved scope
 
-- Add `docs/BRANDING.md` documenting the approved product name, tagline, logo
-  paths and uses, source-asset status, canonical raw URLs, and restrictions on
-  creating or modifying variants.
-- Update `profile/README.md` to use the primary wordmark and exact approved
-  product name and tagline.
-- Link the branding guidance from the root `README.md`.
-- Record the canonical logo location and approved asset roles in
-  `.github/carl/memory.md`.
-- Include the branding guide in the existing public-document link validation
-  so the regression-test fixture contains every linked public document.
-- Open a separate pull request for these changes. Do not merge it.
+- Update only the `actions/checkout` reference and version comment in
+  `.github/workflows/governance.yml`.
+- Reconcile this active contract with PR #2 and record the scoped owner
+  authorization below.
 
 ## Non-goals and forbidden scope
 
-- Do not modify, regenerate, replace, rename, or remove any logo binaries.
-- Do not invent, establish, or publish additional branding variants.
-- Do not change organisation or repository settings, or edit other repositories.
-- Do not add a licence, dependency, release, publishing workflow, or automatic
-  merge.
-- Do not alter unrelated governance, security, CI, or product architecture.
+- Do not change any other action, workflow behavior, dependency, runner,
+  permission, secret, repository setting, or unrelated governance policy.
+- Do not force-push, enable auto-merge, bypass branch protection, delete a
+  branch, or merge any PR other than #2 under this contract.
 
 ## Constraints
 
-- Preserve the three existing assets and their verified bytes:
-  - `logos/kredoxi_logo_optimized.png` — primary wordmark, 1200x900.
-  - `logos/kredoxi_github_avatar.png` — compact logo, 512x512.
-  - `logos/kredoxi-logo.png` — original master source, 1448x1086.
-- Use the exact product name **Kredoxi** and tagline **Steal the config. Not
-  the secret.**
-- In the profile, link the displayed wordmark to the canonical `logos/`
-  directory, use alt text `Kredoxi — Steal the config. Not the secret.`, and
-  set its width to 240px only so its aspect ratio is preserved.
-- Describe only the security properties established by repository evidence;
-  branding must not imply unverified product guarantees.
+- Keep `permissions: contents: read` and `persist-credentials: false`.
+- Preserve `runs-on: ubuntu-24.04`, the 10-minute job timeout, the existing
+  setup-python pin, and Python 3.12.
+- The checkout action must be exactly
+  `actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1`.
+- Do not weaken existing security, validation, or branch-protection controls.
 
 ## Contract assertions and validation
 
-1. The branding guide identifies the exact three canonical paths and their
-   distinct roles, and prohibits unofficial variants.
-2. The profile uses the exact approved product name and tagline; its 240px
-   primary wordmark links to the canonical logo directory and has alt text
-   `Kredoxi — Steal the config. Not the secret.`
-3. Root documentation links to the branding guide, and all repository-local
-   links added by this change resolve; `docs/BRANDING.md` is covered by the
-   validator's fixture and link checks.
-4. The logo files retain their original SHA-256 hashes and dimensions.
-5. `python scripts/validate_governance.py` passes; inspect the final diff and
-   open (but do not merge) a separate PR using the repository PR template.
+1. The complete diff changes only the intended checkout reference/comment and
+   this PR-specific contract.
+2. The action SHA is immutable and corresponds to v7.0.1; workflow permissions,
+   runner, Python runtime, and credential persistence remain as specified.
+3. The required `Governance validation` check succeeds on the final PR head,
+   and the PR is mergeable under the live `main` protections.
+4. After merge, the default-branch workflow succeeds for the resulting main
+   merge SHA before PR #3 is considered.
 
-## Stop conditions and escalation
+## Risks, stop conditions, and escalation
 
-Stop if any canonical logo is missing or differs from its verified bytes, if
-the requested naming or asset roles conflict with checked-in evidence, or if
-completing the task would require changing another repository, image asset,
-security guarantee, or organisation setting. Do not merge the resulting PR.
-
-## Reconciliation and context reset
-
-The branding guide, organisation profile, root README, and memory entry are the
-durable record of this decision. Keep this contract active while the PR is under
-review. After the PR is merged or closed, reset it so this task's scope does not
-constrain unrelated future work.
+Stop if the action SHA/version, workflow baseline, branch protection, required
+check, or mergeability cannot be verified; if any check fails or times out; or
+if an unexpected file or security-sensitive behavior changes. Leave the PR open
+and stop this sequence. Never bypass or weaken a gate.
 
 ## Owner authorization amendment (2026-10-31)
 
-The repository owner explicitly authorizes merging this specific PR #5,
-superseding the preceding “Do not merge the resulting PR” instruction only
-for PR #5. This authorization requires complete diff inspection, unchanged
-canonical logo SHA-256 hashes, no added duplicate logo binaries, the exact
-approved product name and tagline, evidence-bounded claims, required checks
-tied to the amended PR head, intact branch protection, and a successful
-default-branch workflow after merge. Do not bypass protections, enable
-auto-merge, force-push, modify security settings, or merge any other PR under
-this amendment. If any required gate is missing, fails, or times out, leave
-PR #5 open and stop this sequence.
+The repository owner explicitly authorizes merging this specific PR #2, after
+PR #5 has merged and its required default-branch workflow has succeeded. This
+supersedes prior task-scoped instructions not to merge only for PR #2. It does
+not authorize PR #3 or any other PR; the rest of the approved sequence remains
+separately gated. Do not use auto-merge, force-push, or branch-protection
+bypasses. If any gate is missing, fails, or times out, leave PR #2 open and stop.
